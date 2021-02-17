@@ -1,6 +1,7 @@
 #include "pgm.h"
 //https://ugurkoltuk.wordpress.com/2010/03/04/an-extreme-simple-pgm-io-api/
-
+#define HI(num)	(((num) & 0x0000FF00) << 8)
+#define LO(num)	((num) & 0x000000FF)
 
 void SkipComments(FILE *fp)
 {
@@ -77,7 +78,7 @@ void writePGM(const char *filename, const PGMData *data)
     }
 
     fprintf(pgmFile, "P5 ");
-    fprintf(pgmFile, "%d %d ", data>col, data->row);
+    fprintf(pgmFile, "%d %d ", data->col, data->row);
     fprintf(pgmFile, "%d ", data->max_gray);
 
     if (data->max_gray > 255) {
