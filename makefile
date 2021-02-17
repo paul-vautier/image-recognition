@@ -1,17 +1,17 @@
-CC=gcc
-CFLAGS=-Wall -O
-EXEC=main
-SRC=$(wildcard *.c)
-OBJ=$(SRC:.c=.o)
-	all: $(EXEC)
-	main: $(OBJ)
-									$(CC) -o
-									$@ $^ $(LDFLAGS)
-	main.o: pgm.h
+main: main.o pgm.o recognition.o
+	gcc -o main main.o pgm.o recognition.o
 
-	%.o: %.c
-									$(CC) -o $@ -c $< $(CFLAGS)
-	clean:
-									rm -f *.o core
-	mrproper: clean
-									rm -f $(EXEC)
+main.o: main.c
+	gcc -o main.o -c main.c -Wall
+
+pgm.o: pgm.c
+	gcc -o pgm.o -c pgm.c -Wall
+
+recognition.o: recognition.c
+	gcc -o recognition.o -c recognition.c -Wall
+
+clean:
+	rm -f *.o core
+
+rmproper:
+	rm -f main
