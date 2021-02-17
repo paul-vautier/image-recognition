@@ -64,7 +64,45 @@ PGMData* readPGM(const char *file_name, PGMData *data)
 
 }
 
+void writePGM(const char *filename, const PGMData *data)
+{
+    FILE *pgmFile;
+    int i, j;
+    int hi, lo;
 
+    pgmFile = fopen(filename, "wb");
+    if (pgmFile == NULL) {
+        perror("cannot open file to write");
+        exit(EXIT_FAILURE);
+    }
+
+    fprintf(pgmFile, "P5 ");
+    fprintf(pgmFile, "%d %d ", data>col, data->row);
+    fprintf(pgmFile, "%d ", data->max_gray);
+
+    if (data->max_gray > 255) {
+        for (i = 0; i < data->row; ++i) {
+            for (j = 0; j < data->col; ++j) {
+                hi = HI(data->matrix[i][j]);
+                lo = LO(data->matrix[i][j]);
+                fputc(hi, pgmFile);
+                fputc(lo, pgmFile);
+            }
+
+        }
+    }
+    else {
+        for (i = 0; i < data->row; ++i) {
+            for (j = 0; j < data->col; ++j) {
+                lo = LO(data->matrix[i][j]);
+                fputc(lo, pgmFile);
+            }
+        }
+    }
+
+    fclose(pgmFile);
+    deallocate_dynamic_matrix(data->matrix, data->row);
+}
 
 int **allocate_dynamic_matrix(int row, int col)
 {

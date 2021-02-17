@@ -13,3 +13,4 @@ void SkipComments(FILE *fp);
 PGMData* readPGM(const char *file_name, PGMData *data);
 void deallocate_dynamic_matrix(int **matrix, int row);
 int **allocate_dynamic_matrix(int row, int col);
+void writePGM(const char *filename, const PGMData *data);
