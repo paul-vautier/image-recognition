@@ -126,7 +126,25 @@ int **allocate_dynamic_matrix(int row, int col)
 
     return ret_val;
 }
-
+PGMData* cropPGM(PGMData *data,int x1,int y1, int x2,int y2){
+    PGMData* new = malloc(sizeof(PGMData));
+    if(x1 > x2 || y1 > y2){
+        perror("Bornes invalides");
+        return NULL;
+    }
+    else{
+        new->row = y2-y1;
+        new->col = x2-x1;
+        new->matrix = allocate_dynamic_matrix(new->row, new->col);
+        new->max_gray = data->max_gray;
+        for(int i = y1;i<y2;i++){
+            for(int j = x1;j<x2;j++){
+                new->matrix[i-y1][j-x1] = data->matrix[i][j];
+            }
+        }
+    }
+    return new;
+}
 void deallocate_dynamic_matrix(int **matrix, int row)
 {
     int i;
