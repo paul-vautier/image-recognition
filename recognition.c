@@ -114,14 +114,19 @@ bool verify_image(PGMData* data,Path* model,bool with_reporting){
     bool accepted = true;
     int correct_pieces = 0;
     int incorrect_pieces = 0;
-    for(int i=0;i<data->row;i+=6){
-        for(int j=0;j<data->col;j+=2){
-            for(int k=0;k<=indexBox;k++){
-                if(in(boxes[k],j,i)){
-                    j=boxes[k].end.x+1;
-                    break;
+    for(int i=0;i<data->row-64;i+=6){
+        for(int j=0;j<data->col-64;j+=2){
+            bool in_boxes;
+            do{
+                in_boxes=false;
+                for(int k=0;k<=indexBox;k++){
+                    if(in(boxes[k],j,i)){
+                        j=boxes[k].end.x+1;
+                        in_boxes=true;
+                    }
                 }
-            }
+            }while(in_boxes);
+
             if(data->matrix[i][j] == FULL){
                 current = model;
                 BoundingBox box = get_bounding_box(data,j,i);
@@ -173,10 +178,15 @@ Vector2 get_min_y_position(PGMData* data,int px, int py){
     int temp_y = py;
     int temp_x = px;
     while(temp_x>0 && temp_y>0 && (data->matrix[temp_y-1][temp_x]!=EMPTY || data->matrix[temp_y][temp_x+1] != EMPTY)){
-        if(data->matrix[temp_y-1][temp_x]!=EMPTY)
+        if(data->matrix[temp_y-1][temp_x]!=EMPTY){
             temp_y--;
-        else
+        }else if(data->matrix[temp_y-1][temp_x+1]!=EMPTY){
+            temp_y--;
             temp_x++;
+        }
+        else{
+            temp_x++;
+        }
     }
     Vector2 pos = {temp_x,temp_y};
     return pos;
@@ -190,11 +200,16 @@ Vector2 get_min_x_position(PGMData* data,int px, int py){
     //L'incrément est plus petit que la moitié du cercle, on le touche donc toujours sur le quart HAUT GAUCHE;
     int temp_y = py;
     int temp_x = px;
-    while(temp_x>0 && temp_y<data->row && (data->matrix[temp_y+1][temp_x]!=EMPTY || data->matrix[temp_y][temp_x-1] != EMPTY)){
-        if(data->matrix[temp_y][temp_x-1]!=EMPTY)
+    while(temp_x>0 && temp_y<data->row && (data->matrix[temp_y+1][temp_x-1]!=EMPTY || data->matrix[temp_y+1][temp_x]!=EMPTY || data->matrix[temp_y][temp_x-1] != EMPTY)){
+        if(data->matrix[temp_y][temp_x-1]!=EMPTY){
             temp_x--;
-        else
+        }else if(data->matrix[temp_y+1][temp_x-1]!=EMPTY){
+            temp_x--;
             temp_y++;
+        }
+        else{
+            temp_y++;
+        }
     }
     Vector2 pos = {temp_x,temp_y};
     return pos;
