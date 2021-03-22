@@ -1,5 +1,6 @@
 #include "recognition.h"
 
+
 int compare_two(const void * elem1, const void * elem2)
 {
     int f = *((int*)elem1);
@@ -9,38 +10,6 @@ int compare_two(const void * elem1, const void * elem2)
     return 0;
 }
 
-void median_filter(PGMData* data){
-    int* new_matrix[data->row];
-    printf("i=%d / j=%d\n",data->row, data->col);
-    for(int i = 0;i<data->row;i++){
-        if(i==0 || i == data->row -1){
-            new_matrix[i]=data->matrix[i];
-            continue;
-        }
-        new_matrix[i]=malloc(data->col*sizeof(int));
-        for(int j = 0;j<data->col;j++){
-            if(j ==0 || j == data->col-1){
-                new_matrix[i][j] = data->matrix[i][j];
-                continue;
-            }
-            int median[8];
-            median[0] = data->matrix[i-1][j-1];
-            median[1] = data->matrix[i][j-1];
-            median[2] = data->matrix[i+1][j-1];
-
-            median[3] = data->matrix[i-1][j];
-            median[4] = data->matrix[i+1][j];
-
-            median[5] = data->matrix[i-1][j+1];
-            median[6] = data->matrix[i][j+1];
-            median[7] = data->matrix[i+1][j+1];
-
-            qsort(median,sizeof(median)/sizeof(*median),sizeof(*median),compare_two);
-            new_matrix[i][j] = median[4];
-        }
-    }
-    data->matrix = new_matrix;
-}
 
 void binary_floor(PGMData* data,int floor){
     for(int i = 0;i<data->row;i++){
@@ -52,6 +21,8 @@ void binary_floor(PGMData* data,int floor){
         }
     }
 }
+
+
 Path* compute_path(PGMData* data){
     int i;
     int j;
@@ -171,12 +142,16 @@ bool verify_image(PGMData* data,Path* model,bool with_reporting){
     }
     return accepted;
 }
+
 bool is_valid_bound(BoundingBox box){
     return box.end.x - box.begin.x == 65 && box.end.y - box.begin.y == 65;
 }
+
 int in(BoundingBox box, int x, int y){
     return box.begin.x <= x && box.end.x >= x && box.begin.y <= y && box.end.y >= y;
 }
+
+
 Vector2 get_min_y_position(PGMData* data,int px, int py){
     //Je cherche la plus grande valeur au dessus de moi
     while(py >0 && data->matrix[py-1][px]!=EMPTY){
@@ -199,6 +174,7 @@ Vector2 get_min_y_position(PGMData* data,int px, int py){
     Vector2 pos = {temp_x,temp_y};
     return pos;
 }
+
 Vector2 get_min_x_position(PGMData* data,int px, int py){
     //Je cherche la plus grande valeur au dessus de moi
     while(py >0 && data->matrix[py][px-1]!=EMPTY){
@@ -222,18 +198,21 @@ Vector2 get_min_x_position(PGMData* data,int px, int py){
     Vector2 pos = {temp_x,temp_y};
     return pos;
 }
+
 int get_max_x_position(PGMData* data, int x, int y){
     x++;
     while(x < data->col && !(data->matrix[y][x] == FULL && data->matrix[y+1][x] == EMPTY && data->matrix[y-1][x] == EMPTY && data->matrix[y][x-1] == FULL))
         x++;
     return x+1;
 }
+
 int get_max_y_position(PGMData* data, int x, int y){
     y++;
     while(y < data->row && !(data->matrix[y][x] == FULL && data->matrix[y][x+1] == EMPTY && data->matrix[y][x-1] == EMPTY && data->matrix[y-1][x] == FULL))
         y++;
     return y+1;
 }
+
 BoundingBox get_bounding_box(PGMData* data, int x,int y){
     Vector2 min_y = get_min_y_position(data,x,y);
     Vector2 min_x = get_min_x_position(data,x,y);
