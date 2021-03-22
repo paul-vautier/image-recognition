@@ -37,7 +37,7 @@ typedef struct _Box{
 
 
 /**
- * Simple binary thresholding 
+ * Simple binary thresholding
  * @param data PGMData* your pgm data field
  * @param floor the binary floor you want
  */
@@ -68,8 +68,8 @@ Path* compute_path(PGMData* data);
 bool verify_image(PGMData* data,Path* model,bool with_reporting);
 
 /**
- * this function crops all the pixels since the coordonates given as parameters 
- * which are the coordonates of the top left corner of where you're cropping, 
+ * this function crops all the pixels since the coordonates given as parameters
+ * which are the coordonates of the top left corner of where you're cropping,
  * then it determinates the theoric other borders of the box following the ring model dimensions
  * @param data your PGM data field
  * @param x the beginning x
@@ -90,7 +90,7 @@ Vector2 get_min_y_position(PGMData* data,int px, int py);
  * @param data all the pixels as PGMData
  * @return the vector2 of the min x
  */
-Vector2 get_min_x_position(PGMData* data,int px, int py)
+Vector2 get_min_x_position(PGMData* data,int px, int py);
 
 /**
  * initialize a path to the first black pixel encountered
@@ -99,7 +99,7 @@ Path* init_path(PGMData* data, int* i, int *j);
 
 /**
  * @param box the boudingbox you're working on
- * @param x x-coordonate of the point 
+ * @param x x-coordonate of the point
  * @param y y-coordonate of the point
  * @return the int value of the bool explaining if the given point with x andy is in the box
  */
