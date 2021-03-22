@@ -2,19 +2,28 @@
 #include <stdlib.h>
 #include "recognition.h"
 int main(int argc, char** argv){
-    if(argc != 2){
+    if(argc != 2 && argc != 3){
         perror("Un et un seul argument doit être passé");
         return -1;
     }
+    bool report = false;
+    if(argc == 3 && strcmp(argv[2],"-REPORTING")){
+        perror(argv[2]);
+        perror("Argument incorrect");
+        return -1;
+    }else if(argc == 3 && !strcmp(argv[2],"-REPORTING")){
+        report = true;
+    }
+    printf("%s\n",argv[1]);
+    PGMData* model = malloc(sizeof(PGMData));
+    readPGM("./cropped.pgm",model);
+    Path* path = compute_path(model);
+
     PGMData* data = malloc(sizeof(PGMData));
     readPGM(argv[1],data);
-    binary_floor(data,82);
-    BoundingBox b = get_mono_bounding(data);
-    PGMData* cropped = cropPGM(data,b.begin.x,b.begin.y,b.end.x,b.end.y);
-    writePGM("rewritten.pgm",cropped);
-    /*Path* p = compute_path(cropped);
-    while(p!=NULL){
-        printf("Position = %d,%d\n",p->pos.x,p->pos.y);
-        p=p->next;
-    }*/
+    binary_floor(data,80);
+    bool res = verify_image(data,path,report);
+    printf("%s", res == false ? "Refusé" : "Accepté");
+    printf("\n");
+    return 0;
 }

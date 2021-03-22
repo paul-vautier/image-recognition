@@ -7,3 +7,6 @@ DEPS = pgm.h recognition.h
 
 make: pgm.o main.o recognition.o
 	$(CC) -o main pgm.o main.o recognition.o
+
+clean:
+	-rm *.o

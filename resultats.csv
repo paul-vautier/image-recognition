@@ -1,0 +1,41 @@
+./pgm_de_test/examen_0.pgm
+
+Résultat de rapport :, 0 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./pgm_de_test/examen_1.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./pgm_de_test/examen_2.pgm
+
+Résultat de rapport :, 2 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./pgm_de_test/examen_3.pgm
+
+Résultat de rapport :, 4 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./pgm_de_test/examen_4.pgm
+Erreur sur la rondelle dans la zone x1=268 / y1=368 / x2 = 332 / y2 = 432
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./pgm_de_test/examen_5.pgm
+Erreur sur la rondelle dans la zone x1=268 / y1=368 / x2 = 332 / y2 = 432
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./pgm_de_test/examen_6.pgm
+Erreur sur la rondelle dans la zone x1=270 / y1=370 / x2 = 330 / y2 = 430
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./pgm_de_test/examen_7.pgm
+Erreur sur la rondelle dans la zone x1=266 / y1=366 / x2 = 334 / y2 = 434
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./pgm_de_test/examen_8.pgm
+Erreur sur la rondelle dans la zone x1=268 / y1=368 / x2 = 332 / y2 = 432
+
+Résultat de rapport :, 1 rondelles correctes, 1 rondelles incorrectes
+Refusé

@@ -53,57 +53,112 @@ void binary_floor(PGMData* data,int floor){
     }
 }
 Path* compute_path(PGMData* data){
-    Path* base = NULL;
-    Path* current;
     int i;
     int j;
-    int stop = 0;
-    for(i = 0;i<data->row && !stop;i++){
-        for(j = 0;j<data->col && !stop;j++){
-            if(data->matrix[i][j] == FULL){
-                base = (Path*)malloc(sizeof(Path));
-                Vector2 pos = {i,j};
-                base->pos = pos;
-                stop=1;
+    Path* base = init_path(data,&i,&j);
+    Path* current;
+    //First and last full pixel seen in a row;
+    int first_full;
+    int last_full;
+    if(base!= NULL){
+        if(j==data->col-1){
+            i++;
+            j=0;
+        }
+        current = base;
+        for(i;i<data->row;i++){
+            first_full = -1;
+            last_full = -1;
+            for(j;j<data->row;j++){
+                if(data->matrix[i][j] == FULL){
+                    if(first_full == -1)
+                        first_full = j;
+                    else
+                        last_full = j;
+                }
             }
-
-        }
-    }
-    if(j==data->col-1){
-        i++;
-        j=0;
-        if(i==data->row){
-            return base;
-        }
-    }
-    current = base;
-    for(i;i<data->row;i++){
-        for(j;j<data->col;j++){
-            if(data->matrix[i][j] == FULL){
+            for(int k = first_full; k<=last_full;k++){
                 current->next = (Path*)malloc(sizeof(Path));
                 current = current->next;
-                Vector2 pos = {i,j};
+                Vector2 pos = {i,k};
                 current->pos = pos;
+                current->val = data->matrix[i][k];
             }
+            j=0;
         }
-        j=0;
     }
     return base;
 }
 
-int verify_image(PGMData* data){
-    for(int i=0;i<data->row;i+=6){
-        for(int j=0;j<data->col;j+=2){
-            if(data->matrix[i][j] == 0){
-                BoundingBox box = get_bounding_box(data,j,i);
+Path* init_path(PGMData* data, int* i, int *j){
+    Path* base;
+    for((*i) = 0;*i<data->row; (*i)++){
+        for((*j) = 0;*j<data->col; (*j)++){
+            if(data->matrix[*i][*j] == FULL){
+                base = (Path*)malloc(sizeof(Path));
+                Vector2 pos = {*i,*j};
+                base->pos = pos;
+                base->val = FULL;
+                return base;
             }
         }
     }
+    return NULL;
+}
+
+bool verify_image(PGMData* data,Path* model,bool with_reporting){
+    Path* current;
+    int size = 10;
+    int indexBox = -1;
+    BoundingBox boxes[size];
+    bool accepted = true;
+    int correct_pieces = 0;
+    int incorrect_pieces = 0;
+    for(int i=0;i<data->row;i+=6){
+        for(int j=0;j<data->col;j+=2){
+            for(int k=0;k<=indexBox;k++){
+                if(in(boxes[k],j,i)){
+                    j=boxes[k].end.x+1;
+                    break;
+                }
+            }
+            if(data->matrix[i][j] == FULL){
+                current = model;
+                BoundingBox box = get_bounding_box(data,j,i);
+                int bad = 0;
+                while(current!=NULL){
+                    if(data->matrix[box.begin.y + current->pos.y][box.begin.x + current->pos.x] != current->val){
+                        bad++;
+                    }
+                    current = current->next;
+                }
+                indexBox++;
+                boxes[indexBox] = box;
+                if(bad>4){
+                    if(with_reporting){
+                        printf("Erreur sur la rondelle dans la zone x1=%d / y1=%d / x2 = %d / y2 = %d\n", box.begin.x, box.begin.y, box.end.x, box.end.y);
+                        incorrect_pieces++;
+                    }
+                    accepted = false;
+                }else if(with_reporting){
+                    fprintf(stderr,"Piece correcte ++");
+                    correct_pieces++;
+                }
+            }
+        }
+    }
+    if(with_reporting){
+        printf("\nRésultat de rapport :, %d rondelles correctes, %d rondelles incorrectes\n",correct_pieces, incorrect_pieces);
+    }
+    return accepted;
+}
+int in(BoundingBox box, int x, int y){
+    return box.begin.x <= x && box.end.x >= x && box.begin.y <= y && box.end.y >= y;
 }
 BoundingBox get_mono_bounding(PGMData* data){
     for(int i=0;i<data->row;i+=6){
         for(int j=0;j<data->col;j+=2){
-            if(data->matrix[i][j] == 0){
+            if(data->matrix[i][j] == FULL){
                 return get_bounding_box(data,j,i);
             }
         }
@@ -145,7 +200,6 @@ Vector2 get_min_x_position(PGMData* data,int px, int py){
     return pos;
 }
 BoundingBox get_bounding_box(PGMData* data, int x,int y){
-    printf("Hit : %d/%d\n",x,y);
     Vector2 min_y = get_min_y_position(data,x,y);
     Vector2 min_x = get_min_x_position(data,x,y);
     //Quand on a les deux bornes inférieurs et supérieures, on peut ensuite calculer les autres bornes théoriques.
@@ -153,6 +207,5 @@ BoundingBox get_bounding_box(PGMData* data, int x,int y){
     Vector2 left_bound = {min_x.x,min_y.y};
     Vector2 right_bound = {min_x.x+65, min_y.y+65};
     BoundingBox box = {left_bound,right_bound};
-    printf("Box : x1=%d y1=%d x2=%d y2=%d\n",box.begin.x,box.begin.y,box.end.x,box.end.y);
     return box;
 }
