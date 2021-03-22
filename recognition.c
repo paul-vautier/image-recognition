@@ -110,12 +110,12 @@ bool verify_image(PGMData* data,Path* model,bool with_reporting){
     Path* current;
     int size = 10;
     int indexBox = -1;
-    BoundingBox boxes[size];
+    BoundingBox *boxes = (BoundingBox*) malloc(size*sizeof(BoundingBox));
     bool accepted = true;
     int correct_pieces = 0;
     int incorrect_pieces = 0;
-    for(int i=0;i<data->row-64;i+=6){
-        for(int j=0;j<data->col-64;j+=2){
+    for(int i=0;i<data->row-64;i+=16){
+        for(int j=0;j<data->col-64;j+=16){
             bool in_boxes;
             do{
                 in_boxes=false;
@@ -126,29 +126,43 @@ bool verify_image(PGMData* data,Path* model,bool with_reporting){
                     }
                 }
             }while(in_boxes);
-
+            if(i>=data->row || j>=data->col)
+                continue;
             if(data->matrix[i][j] == FULL){
                 current = model;
                 BoundingBox box = get_bounding_box(data,j,i);
-                int bad = 0;
-                while(current!=NULL){
-                    if(data->matrix[box.begin.y + current->pos.y][box.begin.x + current->pos.x] != current->val){
-                        bad++;
-                    }
-                    current = current->next;
+                if(box.end.x == -1 || box.end.y == -1){
+                    continue;
                 }
                 indexBox++;
-                boxes[indexBox] = box;
-                if(bad>4){
-                    if(with_reporting){
-                        printf("Erreur sur la rondelle dans la zone x1=%d / y1=%d / x2 = %d / y2 = %d\n", box.begin.x, box.begin.y, box.end.x, box.end.y);
-                        incorrect_pieces++;
-                    }
-                    accepted = false;
-                }else if(with_reporting){
-                    fprintf(stderr,"Piece correcte ++");
-                    correct_pieces++;
+                if(indexBox == size){
+                    size*=2;
+                    boxes = (BoundingBox*)realloc(boxes,size*sizeof(BoundingBox));
                 }
+                boxes[indexBox] = box;
+                if(is_valid_bound(box)){
+                    int bad = 0;
+                    while(current!=NULL){
+                        if(data->matrix[box.begin.y + current->pos.y][box.begin.x + current->pos.x] != current->val){
+                            bad++;
+                        }
+                        current = current->next;
+                    }
+                    if(bad>4){
+                        if(with_reporting){
+                            printf("Invalid piece : Erreur sur la rondelle dans la zone x1=%d / y1=%d / x2 = %d / y2 = %d hit = %d/%d\n", box.begin.x, box.begin.y, box.end.x, box.end.y,j,i);
+                            incorrect_pieces++;
+                        }
+                        accepted = false;
+                    }else if(with_reporting){
+                        correct_pieces++;
+                    }
+                }else{
+                    printf("Invalid bound : Erreur sur la rondelle dans la zone x1=%d / y1=%d / x2 = %d / y2 = %d hit = %d/%d\n", box.begin.x, box.begin.y, box.end.x, box.end.y,j,i);
+                    incorrect_pieces++;
+                    accepted = false;
+                }
+
             }
         }
     }
@@ -157,17 +171,11 @@ bool verify_image(PGMData* data,Path* model,bool with_reporting){
     }
     return accepted;
 }
+bool is_valid_bound(BoundingBox box){
+    return box.end.x - box.begin.x == 65 && box.end.y - box.begin.y == 65;
+}
 int in(BoundingBox box, int x, int y){
     return box.begin.x <= x && box.end.x >= x && box.begin.y <= y && box.end.y >= y;
-}
-BoundingBox get_mono_bounding(PGMData* data){
-    for(int i=0;i<data->row;i+=6){
-        for(int j=0;j<data->col;j+=2){
-            if(data->matrix[i][j] == FULL){
-                return get_bounding_box(data,j,i);
-            }
-        }
-    }
 }
 Vector2 get_min_y_position(PGMData* data,int px, int py){
     //Je cherche la plus grande valeur au dessus de moi
@@ -214,13 +222,25 @@ Vector2 get_min_x_position(PGMData* data,int px, int py){
     Vector2 pos = {temp_x,temp_y};
     return pos;
 }
+int get_max_x_position(PGMData* data, int x, int y){
+    x++;
+    while(x < data->col && !(data->matrix[y][x] == FULL && data->matrix[y+1][x] == EMPTY && data->matrix[y-1][x] == EMPTY && data->matrix[y][x-1] == FULL))
+        x++;
+    return x+1;
+}
+int get_max_y_position(PGMData* data, int x, int y){
+    y++;
+    while(y < data->row && !(data->matrix[y][x] == FULL && data->matrix[y][x+1] == EMPTY && data->matrix[y][x-1] == EMPTY && data->matrix[y-1][x] == FULL))
+        y++;
+    return y+1;
+}
 BoundingBox get_bounding_box(PGMData* data, int x,int y){
     Vector2 min_y = get_min_y_position(data,x,y);
     Vector2 min_x = get_min_x_position(data,x,y);
     //Quand on a les deux bornes inférieurs et supérieures, on peut ensuite calculer les autres bornes théoriques.
     //Cela ne pose pas de soucis car si ces bornes (x+64 et y+64) ne sont pas les bonnes, cela signifie que ce n'est pas une rondelle valide
     Vector2 left_bound = {min_x.x,min_y.y};
-    Vector2 right_bound = {min_x.x+65, min_y.y+65};
+    Vector2 right_bound = {get_max_x_position(data,min_x.x,min_x.y), get_max_y_position(data,min_y.x,min_y.y)};
     BoundingBox box = {left_bound,right_bound};
     return box;
 }

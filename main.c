@@ -14,6 +14,7 @@ int main(int argc, char** argv){
     }else if(argc == 3 && !strcmp(argv[2],"-REPORTING")){
         report = true;
     }
+    fprintf(stderr,"Ouverture : %s",argv[1]);
     printf("%s\n",argv[1]);
     PGMData* model = malloc(sizeof(PGMData));
     readPGM("./cropped.pgm",model);

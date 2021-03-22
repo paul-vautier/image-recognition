@@ -1,0 +1,306 @@
+./dataset/1/single_0.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/1/single_1.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/1/single_2.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/1/single_3.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/1/single_4.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/1/single_5.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/1/single_6.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/1/single_7.pgm
+
+Résultat de rapport :, 0 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/1/single_8.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/1/single_9.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/2/radius_0.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 304/336
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/2/radius_1.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=113 / y1=335 / x2 = 178 / y2 = 400 hit = 144/336
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/2/radius_2.pgm
+Invalid bound : Erreur sur la rondelle dans la zone x1=376 / y1=203 / x2 = 443 / y2 = 270 hit = 400/208
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/2/radius_3.pgm
+
+Résultat de rapport :, 0 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/2/radius_4.pgm
+Invalid bound : Erreur sur la rondelle dans la zone x1=44 / y1=53 / x2 = 111 / y2 = 120 hit = 64/64
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/2/radius_5.pgm
+Invalid bound : Erreur sur la rondelle dans la zone x1=331 / y1=264 / x2 = 398 / y2 = 331 hit = 352/272
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/2/radius_6.pgm
+Invalid bound : Erreur sur la rondelle dans la zone x1=62 / y1=312 / x2 = 129 / y2 = 379 hit = 80/320
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/2/radius_7.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=9 / y1=38 / x2 = 74 / y2 = 103 hit = 32/48
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/2/radius_8.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=382 / y1=140 / x2 = 447 / y2 = 205 hit = 400/144
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/2/radius_9.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/3/defect_0.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 304/336
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/3/defect_1.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=252 / y1=113 / x2 = 317 / y2 = 178 hit = 272/128
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/3/defect_2.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=358 / y1=182 / x2 = 423 / y2 = 247 hit = 368/192
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/3/defect_3.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=82 / y1=45 / x2 = 147 / y2 = 110 hit = 112/48
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/3/defect_4.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=352 / y1=198 / x2 = 417 / y2 = 263 hit = 384/208
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/3/defect_5.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=18 / y1=216 / x2 = 83 / y2 = 281 hit = 32/224
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/3/defect_6.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=294 / y1=222 / x2 = 359 / y2 = 287 hit = 320/224
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/3/defect_7.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=284 / y1=298 / x2 = 349 / y2 = 363 hit = 304/304
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/3/defect_8.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=282 / y1=263 / x2 = 347 / y2 = 328 hit = 304/272
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/3/defect_9.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=182 / y1=200 / x2 = 247 / y2 = 265 hit = 208/208
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/4/multiple_0.pgm
+
+Résultat de rapport :, 1 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/4/multiple_1.pgm
+
+Résultat de rapport :, 2 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/4/multiple_2.pgm
+
+Résultat de rapport :, 3 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/4/multiple_3.pgm
+
+Résultat de rapport :, 4 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/4/multiple_4.pgm
+
+Résultat de rapport :, 5 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/4/multiple_5.pgm
+
+Résultat de rapport :, 6 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/4/multiple_6.pgm
+
+Résultat de rapport :, 7 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/4/multiple_7.pgm
+
+Résultat de rapport :, 7 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/4/multiple_8.pgm
+
+Résultat de rapport :, 8 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/4/multiple_9.pgm
+
+Résultat de rapport :, 9 rondelles correctes, 0 rondelles incorrectes
+Accepté
+./dataset/5/multiple_radius_0.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 304/336
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/5/multiple_radius_1.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=113 / y1=335 / x2 = 178 / y2 = 400 hit = 144/336
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 307/336
+
+Résultat de rapport :, 0 rondelles correctes, 2 rondelles incorrectes
+Refusé
+./dataset/5/multiple_radius_2.pgm
+Invalid bound : Erreur sur la rondelle dans la zone x1=376 / y1=203 / x2 = 443 / y2 = 270 hit = 400/208
+Invalid piece : Erreur sur la rondelle dans la zone x1=113 / y1=335 / x2 = 178 / y2 = 400 hit = 144/336
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 307/336
+
+Résultat de rapport :, 0 rondelles correctes, 3 rondelles incorrectes
+Refusé
+./dataset/5/multiple_radius_3.pgm
+Invalid bound : Erreur sur la rondelle dans la zone x1=376 / y1=203 / x2 = 443 / y2 = 270 hit = 400/208
+Invalid piece : Erreur sur la rondelle dans la zone x1=113 / y1=335 / x2 = 178 / y2 = 400 hit = 144/336
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 307/336
+
+Résultat de rapport :, 0 rondelles correctes, 3 rondelles incorrectes
+Refusé
+./dataset/5/multiple_radius_4.pgm
+Invalid bound : Erreur sur la rondelle dans la zone x1=44 / y1=53 / x2 = 111 / y2 = 120 hit = 64/64
+Invalid bound : Erreur sur la rondelle dans la zone x1=376 / y1=203 / x2 = 443 / y2 = 270 hit = 400/208
+Invalid piece : Erreur sur la rondelle dans la zone x1=113 / y1=335 / x2 = 178 / y2 = 400 hit = 144/336
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 307/336
+
+Résultat de rapport :, 0 rondelles correctes, 4 rondelles incorrectes
+Refusé
+./dataset/5/multiple_radius_5.pgm
+Invalid bound : Erreur sur la rondelle dans la zone x1=44 / y1=53 / x2 = 111 / y2 = 120 hit = 64/64
+Invalid bound : Erreur sur la rondelle dans la zone x1=376 / y1=203 / x2 = 443 / y2 = 270 hit = 400/208
+Invalid bound : Erreur sur la rondelle dans la zone x1=331 / y1=264 / x2 = 398 / y2 = 331 hit = 352/272
+Invalid piece : Erreur sur la rondelle dans la zone x1=113 / y1=335 / x2 = 178 / y2 = 400 hit = 144/336
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 307/336
+
+Résultat de rapport :, 0 rondelles correctes, 5 rondelles incorrectes
+Refusé
+./dataset/5/multiple_radius_6.pgm
+Invalid bound : Erreur sur la rondelle dans la zone x1=62 / y1=312 / x2 = 129 / y2 = 379 hit = 80/320
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/5/multiple_radius_7.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=9 / y1=38 / x2 = 74 / y2 = 103 hit = 32/48
+Invalid bound : Erreur sur la rondelle dans la zone x1=62 / y1=312 / x2 = 129 / y2 = 379 hit = 80/320
+
+Résultat de rapport :, 0 rondelles correctes, 2 rondelles incorrectes
+Refusé
+./dataset/5/multiple_radius_8.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=9 / y1=38 / x2 = 74 / y2 = 103 hit = 32/48
+Invalid piece : Erreur sur la rondelle dans la zone x1=382 / y1=140 / x2 = 447 / y2 = 205 hit = 400/144
+Invalid bound : Erreur sur la rondelle dans la zone x1=62 / y1=312 / x2 = 129 / y2 = 379 hit = 80/320
+
+Résultat de rapport :, 0 rondelles correctes, 3 rondelles incorrectes
+Refusé
+./dataset/5/multiple_radius_9.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=9 / y1=38 / x2 = 74 / y2 = 103 hit = 32/48
+Invalid piece : Erreur sur la rondelle dans la zone x1=382 / y1=140 / x2 = 447 / y2 = 205 hit = 400/144
+Invalid bound : Erreur sur la rondelle dans la zone x1=62 / y1=312 / x2 = 129 / y2 = 379 hit = 80/320
+
+Résultat de rapport :, 1 rondelles correctes, 3 rondelles incorrectes
+Refusé
+./dataset/6/multiple_defect_0.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 304/336
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/6/multiple_defect_1.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 307/336
+
+Résultat de rapport :, 1 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/6/multiple_defect_2.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=377 / y1=204 / x2 = 442 / y2 = 269 hit = 400/208
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 307/336
+
+Résultat de rapport :, 1 rondelles correctes, 2 rondelles incorrectes
+Refusé
+./dataset/6/multiple_defect_3.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=377 / y1=204 / x2 = 442 / y2 = 269 hit = 400/208
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 307/336
+
+Résultat de rapport :, 1 rondelles correctes, 2 rondelles incorrectes
+Refusé
+./dataset/6/multiple_defect_4.pgm
+Invalid bound : Erreur sur la rondelle dans la zone x1=45 / y1=55 / x2 = 110 / y2 = 513 hit = 80/64
+Invalid piece : Erreur sur la rondelle dans la zone x1=377 / y1=204 / x2 = 442 / y2 = 269 hit = 399/208
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 307/336
+
+Résultat de rapport :, 1 rondelles correctes, 3 rondelles incorrectes
+Refusé
+./dataset/6/multiple_defect_5.pgm
+Invalid bound : Erreur sur la rondelle dans la zone x1=45 / y1=55 / x2 = 110 / y2 = 513 hit = 80/64
+Invalid piece : Erreur sur la rondelle dans la zone x1=377 / y1=204 / x2 = 442 / y2 = 269 hit = 399/208
+Invalid piece : Erreur sur la rondelle dans la zone x1=295 / y1=326 / x2 = 360 / y2 = 391 hit = 307/336
+
+Résultat de rapport :, 2 rondelles correctes, 3 rondelles incorrectes
+Refusé
+./dataset/6/multiple_defect_6.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=63 / y1=313 / x2 = 128 / y2 = 378 hit = 80/320
+
+Résultat de rapport :, 0 rondelles correctes, 1 rondelles incorrectes
+Refusé
+./dataset/6/multiple_defect_7.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=9 / y1=38 / x2 = 74 / y2 = 103 hit = 32/48
+Invalid piece : Erreur sur la rondelle dans la zone x1=63 / y1=313 / x2 = 128 / y2 = 378 hit = 80/320
+
+Résultat de rapport :, 0 rondelles correctes, 2 rondelles incorrectes
+Refusé
+./dataset/6/multiple_defect_8.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=9 / y1=38 / x2 = 74 / y2 = 103 hit = 32/48
+Invalid piece : Erreur sur la rondelle dans la zone x1=382 / y1=140 / x2 = 447 / y2 = 205 hit = 400/144
+Invalid piece : Erreur sur la rondelle dans la zone x1=63 / y1=313 / x2 = 128 / y2 = 378 hit = 80/320
+
+Résultat de rapport :, 0 rondelles correctes, 3 rondelles incorrectes
+Refusé
+./dataset/6/multiple_defect_9.pgm
+Invalid piece : Erreur sur la rondelle dans la zone x1=9 / y1=38 / x2 = 74 / y2 = 103 hit = 32/48
+Invalid piece : Erreur sur la rondelle dans la zone x1=382 / y1=140 / x2 = 447 / y2 = 205 hit = 400/144
+Invalid piece : Erreur sur la rondelle dans la zone x1=63 / y1=313 / x2 = 128 / y2 = 378 hit = 80/320
+
+Résultat de rapport :, 1 rondelles correctes, 3 rondelles incorrectes
+Refusé
