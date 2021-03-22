@@ -150,7 +150,7 @@ bool verify_image(PGMData* data,Path* model,bool with_reporting){
                     }
                     if(bad>4){
                         if(with_reporting){
-                            printf("Invalid piece : Erreur sur la rondelle dans la zone x1=%d / y1=%d / x2 = %d / y2 = %d hit = %d/%d\n", box.begin.x, box.begin.y, box.end.x, box.end.y,j,i);
+                            printf("Défaut matière : ,[x=%d - y=%d],[x=%d - y=%d]\n", box.begin.x, box.begin.y, box.end.x, box.end.y);
                             incorrect_pieces++;
                         }
                         accepted = false;
@@ -158,7 +158,7 @@ bool verify_image(PGMData* data,Path* model,bool with_reporting){
                         correct_pieces++;
                     }
                 }else{
-                    printf("Invalid bound : Erreur sur la rondelle dans la zone x1=%d / y1=%d / x2 = %d / y2 = %d hit = %d/%d\n", box.begin.x, box.begin.y, box.end.x, box.end.y,j,i);
+                    printf("Défaut taille : ,[x=%d - y=%d],[x=%d - y=%d]\n", box.begin.x, box.begin.y, box.end.x, box.end.y);
                     incorrect_pieces++;
                     accepted = false;
                 }
@@ -167,7 +167,7 @@ bool verify_image(PGMData* data,Path* model,bool with_reporting){
         }
     }
     if(with_reporting){
-        printf("\nRésultat de rapport :, %d rondelles correctes, %d rondelles incorrectes\n",correct_pieces, incorrect_pieces);
+        printf("Résultat de rapport :, %d rondelles correctes, %d rondelles incorrectes\n",correct_pieces, incorrect_pieces);
     }
     return accepted;
 }
