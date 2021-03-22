@@ -59,10 +59,10 @@ int compare_two(const void * elem1, const void * elem2);
 Path* compute_path(PGMData* data);
 
 /**
- * 
- * @param
- * @param
- * @param
+ * the algorithm which is checking if rings on image are correct or not
+ * @param data the image on which you're testing if rings are correct or not
+ * @param model the ring model as PGMData
+ * @param with_reporting true if you want report in the console
  * @return a boolean corresponding to the result
  */
 bool verify_image(PGMData* data,Path* model,bool with_reporting);
@@ -93,7 +93,7 @@ Vector2 get_min_y_position(PGMData* data,int px, int py);
 Vector2 get_min_x_position(PGMData* data,int px, int py)
 
 /**
- * 
+ * initialize a path to the first black pixel encountered
  */
 Path* init_path(PGMData* data, int* i, int *j);
 
