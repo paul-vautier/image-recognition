@@ -28,6 +28,6 @@ int main(int argc, char** argv){
 
     clock_t end = clock();
     double spent = (double)(end-begin)/CLOCKS_PER_SEC;
-    printf("Fichier : %s, Résultat : %s, Temps exécution : %f\n\n",argv[1], res == false ? "Refusé" : "Accepté", spent);
+    printf("Fichier : %s, Résultat : %s, Temps exécution : %.2f\n\n",argv[1], res == false ? "Refusé" : "Accepté", spent);
     return 0;
 }
